@@ -1,6 +1,6 @@
-import * as React from "react";
-import { FilterCheckbox } from ".";
-import { Input } from "../ui";
+import * as React from 'react';
+import { FilterCheckbox } from '.';
+import { Input } from '../ui';
 
 type Item = {
   text: string;
@@ -15,9 +15,9 @@ export interface IAppProps {
   items: Item[];
   defaultItem: Item[];
   limit?: number;
-  searchInputPlaceHolder: string;
+  searchInputPlaceHolder?: string;
   onChange?: (values: string[]) => void;
-  defaultValue: string;
+  defaultValue?: string;
   className?: string;
 }
 
@@ -32,13 +32,12 @@ export function CheckBoxFilterGroup({
   className,
 }: IAppProps) {
   return (
-    <div>
+    <div className="mb-5">
       <p>{title}:</p>
-      <div className="mb-5">
-        <Input
-          placeholder={searchInputPlaceHolder}
-          className="bg-gray-50 border-none"
-        />
+      <div>
+        {defaultItem.map((item) => {
+          return <FilterCheckbox text={item.text} value={item.value} />;
+        })}
       </div>
     </div>
   );
