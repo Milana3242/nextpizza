@@ -2,10 +2,29 @@
 import * as React from "react";
 import { FilterCheckbox, Title } from ".";
 import { Input,RangeSlider } from "components/ui";
+import { CheckBoxFilterGroup } from "./CheckBoxFilterGroup";
 
 export interface IAppProps {}
 
+
+
 export function Filters(props: IAppProps) {
+
+  const item=[
+{text:"Сырный соус", value:"1"},
+{text:"Моцарелла", value:"1"},
+{text:"Чеснок", value:"1"},
+{text:"Солённые огурчики" ,value:"1"},
+{text:"Красный лук" ,value:"1"},
+{text:"Томаты" ,value:"1"},
+{text:"Чеснок", value:"1"},
+{text:"Солённые огурчики", value:"1"},
+{text:"Красный лук" ,value:"1"},
+{text:"Томаты" ,value:"1"},
+  ]
+
+  // const[items,setItems]=React.useState()
+
   return (
     <div className="w-1/5">
       <Title text="Фильтрация" className="font-bold mb-7"></Title>
@@ -26,15 +45,10 @@ export function Filters(props: IAppProps) {
       </div>
 
       <div>
-        <p className="font-bold text-base mb-2">Ингредиенты:</p>
-        <FilterCheckbox text="Сырный соус" value="1"></FilterCheckbox>
-        <FilterCheckbox text="Моцарелла" value="1"></FilterCheckbox>
-        <FilterCheckbox text="Чеснок" value="1"></FilterCheckbox>
-        <FilterCheckbox text="Солённые огурчики" value="1"></FilterCheckbox>
-        <FilterCheckbox text="Красный лук" value="1"></FilterCheckbox>
-        <FilterCheckbox text="Томаты" value="1"></FilterCheckbox>
-        <br></br>
-        <button className="text-orange-500">+ Показать всё</button>
+      {/* <p className="font-bold text-base mb-2">Тип теста:</p> */}
+
+      <CheckBoxFilterGroup title="Ингрeдиенты" items={item} limit={6} defaultItem={item} searchInputPlaceHolder="Поиск" defaultValue="ddd"></CheckBoxFilterGroup>
+
       </div>
 
     </div>
