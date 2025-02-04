@@ -34,17 +34,29 @@ export function CheckBoxFilterGroup({
   className,
 }: IAppProps) {
   const [showAll, setShowAll] = React.useState(false);
-  const [search,setSearch]=React.useState()
-  const list = showAll ? items : defaultItem.slice(0, limit);
+  const [search, setSearch] = React.useState("");
+
+  const list = showAll ? items.filter(item=>item.text.toLowerCase().includes(search.toLowerCase())) : defaultItem.slice(0, limit);
 
   return (
     <div>
       <p>{title}:</p>
       <div className="mb-5">
-        <Input
-          placeholder={searchInputPlaceHolder}
-          className="bg-gray-50 border-none"
-        />
+        {showAll ? (
+          <Input
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder={searchInputPlaceHolder}
+            className="bg-gray-50 border-none"
+          />
+        ) : (
+          <></>
+        )}
+      </div>
+
+      <div className="flex flex-col gap-4 max-h-96 pr-2 overflow-auto scrollbar">
+        {list.map((item, index) => (
+          <FilterCheckbox key={index} text={item.text} value={item.value} />
+        ))}
       </div>
 
       {items.length > limit && (

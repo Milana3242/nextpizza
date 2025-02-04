@@ -57,7 +57,7 @@ export function Filters(props: IAppProps) {
       <div>
       {/* <p className="font-bold text-base mb-2">Тип теста:</p> */}
 
-      <CheckBoxFilterGroup title="Ингрeдиенты" items={item} limit={6} defaultItem={item} searchInputPlaceHolder="Поиск" defaultValue="ddd"></CheckBoxFilterGroup>
+      <CheckBoxFilterGroup title="Ингрeдиенты" items={item} limit={5} defaultItem={item} searchInputPlaceHolder="Поиск" defaultValue="ddd"></CheckBoxFilterGroup>
 
       </div>
     </div>

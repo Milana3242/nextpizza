@@ -1,13 +1,48 @@
 import { Container, Title, Categories, Filters } from "components/shared";
+import { ProductCard } from "components/shared/ProductCard";
+import { ProductCardGroup } from "components/shared/ProductCardGroup";
 import { SortPopUp } from "components/shared/SortPopUp";
 import { Checkbox } from "components/ui";
 import { cn } from "lib/utils";
 
 export default function Home() {
+  const pizzas = [
+    {
+      imageUrl:
+        "https://media.dodostatic.net/image/r:584x584/11ee7d610d2925109ab2e1c92cc5383c.avif",
+      name: "Pizza",
+      price: 350,
+      id: 1,
+    },
+    {
+      imageUrl:
+        "https://media.dodostatic.net/image/r:584x584/11ee7d610d2925109ab2e1c92cc5383c.avif",
+      name: "Pizza",
+      price: 350,
+      id: 2,
+    },
+    {
+      imageUrl:
+        "https://media.dodostatic.net/image/r:584x584/11ee7d610d2925109ab2e1c92cc5383c.avif",
+      name: "Pizza",
+      price: 350,
+      id: 3,
+    },
+    {
+      imageUrl:
+        "https://media.dodostatic.net/image/r:584x584/11ee7d610d2925109ab2e1c92cc5383c.avif",
+      name: "Pizza",
+      price: 350,
+      id: 4,
+    },
+  ];
   return (
     <div>
       <Container>
-        <Title size="lg" className="font-extrabold mt-5" text=" Все пиццы"></Title>
+        <Title
+          size="lg"
+          className="font-extrabold mt-5"
+          text=" Все пиццы"></Title>
       </Container>
 
       <div
@@ -20,12 +55,20 @@ export default function Home() {
         </Container>
       </div>
 
-      <Container className={cn("mt-9 flex gap-4")}>
+      <Container className={cn("mt-9 flex gap-16")}>
         <Filters></Filters>
 
-        <div className="w-4/5">swsws</div>
+        <div>
+          <ProductCardGroup
+            items={pizzas}
+            title="Пиццы"
+            categoryId={1}></ProductCardGroup>
+          <ProductCardGroup
+            items={pizzas}
+            title="Комбо"
+            categoryId={2}></ProductCardGroup>
+        </div>
       </Container>
-      <div style={{height:2000}}></div>
     </div>
   );
 }
